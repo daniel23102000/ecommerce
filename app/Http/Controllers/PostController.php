@@ -36,4 +36,13 @@ class PostController extends Controller
             "post" => $post
         ]);
     }
+
+    public function mystore(mystore $post)
+    {
+        return view('post', [
+            "title" => "Single post",
+            "active" => 'posts',
+            "post" => $post::all()
+        ]);
+    }
 }

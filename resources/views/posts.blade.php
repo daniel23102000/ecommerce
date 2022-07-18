@@ -29,9 +29,9 @@
         </div>
         @endif
   <div class="card-body text-center">
-    <h3 class="card-title"><a href="/posts?author={{ $posts[0]->slug }}" class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h3>
+    <h3 class="card-title"><a href="/example?author={{ $posts[0]->slug }}" class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h3>
     
-    <p><small class="text-muted">By. <a href="/blog?author={{ $posts[0]->category->username }}"> {{ $posts[0]->author->name   }}</a> in <a href="/blog?category={{ $posts[0]->category->slug }}" class="text-decoration-none">{{ $posts[0]->category->name   }}</a> {{ $posts[0]->created_at->diffForHumans() }}</small></p>
+    <p><small class="text-muted">By. <a href="/example?author={{ $posts[0]->author->username }}"> {{ $posts[0]->author->name   }}</a> in <a href="/example?category={{ $posts[0]->category->slug }}" class="text-decoration-none">{{ $posts[0]->category->name   }}</a> {{ $posts[0]->created_at->diffForHumans() }}</small></p>
     
     <p class="card-text">{{ $posts[0]->excerpt }}</p>
 
@@ -43,18 +43,18 @@
 
 <div class="container">
     <div class="row">
-        @foreach ($posts->skip(1) as $posts)
+        @foreach ($posts as $posts)
         <div class="col-md-4">
         <div class="card" style="width: 18rem;">
         <div class="position-absolute bg-dark px-3 py-3 text-white" style="background-color: rgba(0, 0, 0, 0.7)">
-        <a href="/blog?category={{ $posts->category->slug }}" class="text-white text-decoration-none">{{ $posts->category->name }}</a></div>
+        <a href="/example?category={{ $posts->category->slug }}" class="text-white text-decoration-none">{{ $posts->category->name }}</a></div>
         <img src="{{ asset('storage/' . $posts->image) }}" alt="{{ $posts->category->name }}">
     <div class="card-body">
     <h5 class="card-title">{{ $posts->title }}</h5>
     <p><small class="text-muted">By. 
-        <a href="/blog?author={{ $posts->author->username }}"> {{ $posts->author->name   }}</a> 
+        <a href="/example?author={{ $posts->author->username }}"> {{ $posts->author->name   }}</a> 
         in 
-        <a href="/blog?category={{ $posts->category->slug }}" class="text-decoration-none">{{ $posts->category->name  }}
+        <a href="/example?category={{ $posts->category->slug }}" class="text-decoration-none">{{ $posts->category->name  }}
         </a> {{ $posts->created_at->diffForHumans() }}</small></p>
     <p class="card-text">{{ $posts->excerpt }}</p>
     <a href="/posts/{{ $posts->slug }}" class="btn btn-primary">Read More</a>
@@ -68,8 +68,16 @@
 <p class="text-center fs-4">No post found.</p>
 @endif
 
-<div class="d-flex justify-content-end">
+<!-- <div class="d-flex justify-content-end">
 {{ $posts->paginate()->links() }}
-</div>
+</div> -->
+
+<form action="/action_page.php">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname"><br><br>
+  <input type="submit" value="Submit">
+</form> 
 
     @endsection

@@ -8,7 +8,7 @@
     <div class="row">
         @foreach( $categories as $category)
     <div class="col-md-4">
-        <a href="/blog?category={{ $category->slug }}">
+        <a href="/example?category={{ $category->slug }}">
     <div class="card bg-dark text-white">
   <img src="..." class="card-img" alt="...">
   <div class="card-img-overlay d-flex align-items-center p-0">
@@ -24,7 +24,7 @@
     @foreach ($categories as $category)
     <ul>
         <li>
-            <h2><a href="/categories/{{ $category->slug }}">{{ $category->name }}</a></h2>
+            <h2><a href="/example?category={{ $category->slug }}">{{ $category->name }}</a></h2>
         </li>
     </ul>
     @endforeach

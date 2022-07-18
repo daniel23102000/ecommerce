@@ -8,6 +8,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\DashboardStoreController;
+
 
 
 /*
@@ -38,10 +40,15 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/blog', [PostController::class, 'index']);
+Route::get('/example', [PostController::class, 'index']);
 
+// Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
+
+Route::get('/store/{author:username}', [PostController::class, 'index']);
+
+// Route::get('/store/{post:username}', [PostController::class, 'index']);
 
 Route::get('/categories', function(){
     return view('categories', [
@@ -65,5 +72,6 @@ route::get('/dashboard', function() {
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+Route::resource('/dashboard/store', DashboardStoreController::class)->middleware('auth');
 
-Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('auth');

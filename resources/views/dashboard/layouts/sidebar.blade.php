@@ -13,6 +13,12 @@
               My Posts
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('dashboard/store*') ? 'active' : '' }}" href="/dashboard/store">
+              <span data-feather="file-text" class="align-text-bottom"></span>
+              My Product
+            </a>
+          </li>
         </ul>
 
         @can('admin')
