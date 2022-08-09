@@ -66,6 +66,48 @@
     </div>
     @enderror
   </div>
+  <div class="mb-3">
+    <label for="barcode" class="form-label">Barcode</label>
+    <input type="text" class="form-control @error('barcode') is-invalid @enderror" id="barcode" name="barcode" 
+    value="{{ old('barcode', $post->barcode) }}">
+    @error('barcode')
+    <div class="invalid-feedback">
+      {{ $message }}
+    </div>
+    @enderror
+  </div>
+  <div class="mb-3">
+    <label for="price" class="form-label">Price</label>
+    <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" 
+    value="{{ old('price', $post->price) }}">
+    @error('price')
+    <div class="invalid-feedback">
+      {{ $message }}
+    </div>
+    @enderror
+  </div>
+  <div class="mb-3">
+    <label for="quantity" class="form-label">Quantity</label>
+    <input type="text" class="form-control @error('quantity') is-invalid @enderror" id="quantity" name="quantity" 
+    value="{{ old('quantity', $post->quantity) }}">
+    @error('quantity')
+    <div class="invalid-feedback">
+      {{ $message }}
+    </div>
+    @enderror
+  </div>
+  <div class="class-m-3">
+  <label for="status">Status</label>
+                <select name="status" class="form-control @error('status') is-invalid @enderror" id="status">
+                    <option value="1" {{ old('status', $post->status) === 1 ? 'selected' : ''}}>Active</option>
+                    <option value="0" {{ old('status', $post->status) === 0 ? 'selected' : ''}}>Inactive</option>
+                </select>
+                @error('status')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+    </div>
 
   <!-- WYSIWYG -->
   <!-- <div class="wp-webdeasy-comment-editor">

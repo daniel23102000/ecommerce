@@ -14,9 +14,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('dashboard/store*') ? 'active' : '' }}" href="/dashboard/store">
+            <a class="nav-link {{ Request::is('dashboard/cart*') ? 'active' : '' }}" href="/dashboard/cart">
               <span data-feather="file-text" class="align-text-bottom"></span>
-              My Product
+              My Cart
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('dashboard/customers*') ? 'active' : '' }}" href="/dashboard/customers">
+              <span data-feather="file-text" class="align-text-bottom"></span>
+              My Customer
             </a>
           </li>
         </ul>

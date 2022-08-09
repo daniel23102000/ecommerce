@@ -9,6 +9,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\DashboardStoreController;
+use App\Http\Controllers\DashboardCustomerController;
+use App\Http\Controllers\DashboardCartController;
 
 
 
@@ -72,6 +74,8 @@ route::get('/dashboard', function() {
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
-Route::resource('/dashboard/store', DashboardStoreController::class)->middleware('auth');
+Route::resource('/dashboard/customers', DashboardCustomerController::class)->middleware('auth');
+Route::resource('/dashboard/cart', DashboardCartController::class)->middleware('auth');
+
 
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('auth');

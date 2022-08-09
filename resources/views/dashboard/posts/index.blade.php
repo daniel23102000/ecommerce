@@ -17,8 +17,14 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Title</th>
+              <th scope="col">Name</th>
               <th scope="col">Category</th>
+              <th scope="col">Barcode</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Status</th>
+              <th scope="col">Created At</th>
+              <th scope="col">Updated At</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -28,6 +34,12 @@
               <td>{{ $loop->iteration }}</td>
               <td>{{ $post->title }}</td>
               <td>{{ $post->category->name }}</td>
+              <td>{{ $post->barcode }}</td>
+              <td>{{ $post->price }}</td>
+              <td>{{ $post->quantity }}</td>
+              <td>{{ $post->status }}</td>
+              <td>{{ $post->created_at }}</td>
+              <td>{{ $post->updated_at }}</td>
               <td>
                 <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><span data-feather="eye">
                 </span></a>

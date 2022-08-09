@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->text('excerpt');
             $table->text('body');
+            $table->string('barcode')->unique();
+            $table->decimal('price', 8, 2);
+            $table->boolean('status')->default(true);
+
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

@@ -166,6 +166,26 @@
   top: 0;
   left: 0;
 }
+
+.user-cart{
+  .card{
+    height: 500px;
+  }
+
+.order-product{
+.item{
+    float: left;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #fff;
+    img {
+      width: 100px;
+      height: 100px;
+      max-width: 100%;
+    }
+  }
+}
+}
     </style>
   </head>
   <body>

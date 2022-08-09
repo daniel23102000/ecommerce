@@ -47,10 +47,13 @@ class DashboardPostController extends Controller
 
         $validatedData = $request->validate([
             'title' => 'required|max:255',
-            'slug' => 'required|unique:posts',
             'category_id' => 'required',
             'image' => 'image|file|max:1024',
-            'body' => 'required'
+            'body' => 'required',
+            'barcode' => 'required|string|max:50|unique:posts',
+            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
+            'quantity' => 'required|integer',
+            'status' => 'required|boolean'
 
         ]);
 
@@ -106,7 +109,11 @@ class DashboardPostController extends Controller
             'title' => 'required|max:255',
             'category_id' => 'required',
             'image' => 'image|file|max:1024',
-            'body' => 'required'
+            'body' => 'required',
+            'barcode' => 'required|string|max:50|unique:posts',
+            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
+            'quantity' => 'required|integer',
+            'status' => 'required|boolean'
 
         ];
 
