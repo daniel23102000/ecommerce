@@ -79,3 +79,6 @@ Route::resource('/dashboard/cart', DashboardCartController::class)->middleware('
 
 
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('auth');
+
+
+Route::get('/dashboard/carter/',[DashboardCartController::class, 'sh_cart'])->middleware('auth');

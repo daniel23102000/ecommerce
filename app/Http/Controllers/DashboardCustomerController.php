@@ -14,9 +14,8 @@ class DashboardCustomerController extends Controller
      */
     public function index()
     {
-        return view('dashboard.customers.index', [
-            'customers' => Customer::where('user_id', auth()->user()->id)->get()
-        ]);
+        $customers = Customer::where('user_id', auth()->user()->id)->get();
+        return view('dashboard.customers.index', compact('customers'));
     }
 
     /**

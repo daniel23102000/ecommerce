@@ -41,6 +41,11 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function detail_transaksi()
+    {
+        return $this->hasMany(Detail_transaksi::class);
+    }
+
     public function getRouteKeyName()
     {
         return 'slug';
@@ -54,4 +59,25 @@ class Post extends Model
             ]
         ];
     }
+
+    static function detail_produk($id){
+        $data = Post::where('id', $id)->first();
+
+        return $data;
+    }
+
+    static function list_produk()
+    {
+        $data = Post::where('user_id', auth()->user()->id)->get();
+        return data;
+    }
+
+    static function tambah_produk($title, $price)
+    {
+        Post::create([
+            "title" => $title,
+            "price" => $price,
+        ]);
+    }
+    
 }

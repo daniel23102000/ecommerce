@@ -26,13 +26,13 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('yusuftallulembang2310')        
         ]);
 
-        Customer::create([
-            'first_name' => 'Bruce',
-            'last_name' => 'Wayne',
-            'email' => 'brucewayne4625@gmail.com',
-            'phone' => '081384694130',
-            'address' => 'Gotham'
-        ]);
+        // Customer::create([
+        //     'first_name' => 'Bruce',
+        //     'last_name' => 'Wayne',
+        //     'email' => 'brucewayne4625@gmail.com',
+        //     'phone' => '081384694130',
+        //     'address' => 'Gotham'
+        // ]);
 
          Category::create([
               'name' => 'Web Programming',
@@ -48,6 +48,11 @@ class DatabaseSeeder extends Seeder
               'name' => 'Personal',
               'slug' => 'personal'       
           ]);
+
+          Category::create([
+            'name' => 'Sport',
+            'slug' => 'sport'       
+        ]);
 
           Post::factory(20)->create();
 
